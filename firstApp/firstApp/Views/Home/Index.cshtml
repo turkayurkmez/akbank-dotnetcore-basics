@@ -1,0 +1,25 @@
+﻿
+<html>
+<head>
+</head>
+<body>
+    <h3>Burası; Home/Index</h3>
+    <h4>Hoşgeldin @ViewBag.UserName</h4>
+    @if (ViewBag.Hour >=  18)
+    {
+        <p>İyi Akşamlar</p>
+    }
+    else if (ViewBag.Hour>13)
+    {
+        <p>İyi Günler</p>
+    }
+
+   @* @foreach (var item in collection)
+    {
+        
+    }*@
+    <p>
+        Sistemimize kayıt olmak için <a asp-action="Register" asp-controller="Home" > tıklayınız</a>
+    </p>
+</body>
+</html>
