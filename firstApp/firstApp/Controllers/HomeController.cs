@@ -23,6 +23,10 @@ namespace firstApp.Controllers
         [HttpPost]
         public IActionResult Register(User user)
         {
+            if (ModelState.IsValid)
+            {
+                return Redirect("/");
+            }
             return View();
         }
 

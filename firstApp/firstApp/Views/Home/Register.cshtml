@@ -1,21 +1,13 @@
 ﻿@model User
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
-</head>
-<body>
     <form method="post">
-        <input name="userName" id="name" type="text" /><br />
-        <input name="age" id="age" type="number" />
-        <input name="birthDate" id="date" type="datetime-local" />
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName"></span>
+        <br />
+
+    <input asp-for="Age" class="form-control" /><br />
+    <input asp-for="BirthDate" class="form-control" />
         <button type="submit">Gönder</button>
     </form>
-</body>
-</html>
+
