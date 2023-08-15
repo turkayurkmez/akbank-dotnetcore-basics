@@ -1,4 +1,5 @@
 ﻿using eshop.Models;
+using eshop.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,26 +9,36 @@ namespace eshop.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IProductService productService;
+        public HomeController(ILogger<HomeController> logger, IProductService productService)
         {
             _logger = logger;
+            this.productService = productService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNo = 1)
         {
-            var products = new List<Product>()
-            {
-              new (){ Id =1, Name="Product A", Description="Desc of Product A", Price=100, Discount=0.15M },
-              new (){ Id =2, Name="Product B", Description="Desc of Product B", Price=100, Discount=0.15M },
-              new (){ Id =3, Name="Product C", Description="Desc of Product C", Price=100, Discount=0.15M },
-              new (){ Id =4, Name="Product D", Description="Desc of Product D", Price=100, Discount=0.15M },
-                new (){ Id =5, Name="Product e", Description="Desc of Product E", Price=100, Discount=0.15M },
-              new (){ Id =6, Name="Product F", Description="Desc of Product F", Price=100, Discount=0.15M },
-              new (){ Id =7, Name="Product G", Description="Desc of Product G", Price=100, Discount=0.15M },
-              new (){ Id =8, Name="Product H", Description="Desc of Product H", Price=100, Discount=0.15M }
-            };
+            //var productService = 
+            var products = productService.GetProducts();
 
-            return View(products);
+            var pageSize = 4;
+            var totalPages = (int)Math.Ceiling((decimal)products.Count / pageSize);
+
+
+            ViewBag.Pages = totalPages;
+
+            /*
+             * 1. sayfada 0 atla 4 al
+             * 2. sayfada 4 atla 4 al
+             * 3. sayfada 8 atla 4 al
+             */
+            var paginated = products.OrderBy(p => p.Id)
+                                    .Skip((pageNo - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToList();
+
+
+            return View(paginated);
         }
 
         public IActionResult Privacy()
