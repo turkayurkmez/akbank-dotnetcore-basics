@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Home Page";
+    int rowCount = 0;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="row m-2">
+    @foreach (var product in Model)
+    {
+        @if (rowCount != 0 && rowCount % 4 == 0)
+        {
+            @:</div><div class="row m-2">
+        }
+        <div class="col-3">
+            <div class="card">
+                <img src="@product.ImageUrl" class="img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Description</p>
+                    <p class="card-text">@product.Price yerine @(product.Price * (1-product.Discount)) TL</p>
+
+                    <a href="#" class="btn btn-primary">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+
+        rowCount++;
+    }
+
+</div>
