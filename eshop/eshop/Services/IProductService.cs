@@ -7,5 +7,7 @@ namespace eshop.Services
         List<Product> GetProducts();
         List<Product> GetProductsByCategoryId(int id);
 
+        Product FindProduct(int productId);
+
     }
 }

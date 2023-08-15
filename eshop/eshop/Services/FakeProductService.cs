@@ -21,6 +21,11 @@ namespace eshop.Services
             };
         }
 
+        public Product FindProduct(int productId)
+        {
+            return products.SingleOrDefault(p => p.Id == productId);
+        }
+
         public List<Product> GetProducts()
         {
             return products;
