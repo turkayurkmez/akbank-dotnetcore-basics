@@ -30,7 +30,7 @@
   
    @for (int i = 1; i <= ViewBag.Pages; i++)
     {
-         <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Home" asp-route-pageNo="@i">@i</a></li>
+         <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Home" asp-route-pageNo="@i" asp-route-category="@ViewBag.Category">@i</a></li>
     }
    
     

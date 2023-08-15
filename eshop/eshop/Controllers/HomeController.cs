@@ -16,10 +16,13 @@ namespace eshop.Controllers
             this.productService = productService;
         }
 
-        public IActionResult Index(int pageNo = 1)
+        public IActionResult Index(int pageNo = 1, int? category = null)
         {
             //var productService = 
-            var products = productService.GetProducts();
+            var products = category == null ? productService.GetProducts()
+                                            : productService.GetProductsByCategoryId(category.Value);
+
+            ViewBag.Category = category;
 
             var pageSize = 4;
             var totalPages = (int)Math.Ceiling((decimal)products.Count / pageSize);
