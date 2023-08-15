@@ -36,3 +36,25 @@
     
    
   </ul>
+
+  @section Scripts{
+      <script>
+          $(document).ready(function(){
+              $('.basket').on('click',function(){
+                  let id = $(this).data('id');
+                  console.log("Butona tıklandı",id);
+                  $.ajax({
+                      url:'/Shopping/AddToCard/'+id,
+                      method:'GET',
+                      success: function(data){
+                          console.log(data);
+                      },
+                      error: function(err){
+                          console.log(err);
+                      }
+
+                  })
+              });
+          });
+      </script>
+  }
