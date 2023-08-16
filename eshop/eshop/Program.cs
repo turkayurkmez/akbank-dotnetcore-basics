@@ -1,14 +1,20 @@
 ﻿
+using eshop.Data;
 using eshop.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductService, FakeProductService>();
-builder.Services.AddScoped<ICategoryService, FakeCategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 //1. Session nesnesini ekleyeceğiz:
 builder.Services.AddSession();
+//Önce ortam değerlerinden bağlantı cümlesi:
+var connectionString = builder.Configuration.GetConnectionString("db");
+//DbContext nesnesini ekle:
+builder.Services.AddDbContext<AkbankDbContext>(option => option.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

@@ -24,7 +24,7 @@
 
         }
 
-        public decimal TotalPrice() => ProductItems.Sum(p => p.Product.Price * (1 - p.Product.Discount) * p.Quantity);
+        public decimal? TotalPrice() => ProductItems.Sum(p => p.Product.Price * (1 - p.Product.Discount) * p.Quantity);
         public void Clear() => ProductItems.Clear();
         public void Remove(int id) => ProductItems.RemoveAll(p => p.Product.Id == id);
 
