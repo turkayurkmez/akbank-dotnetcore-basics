@@ -2,6 +2,7 @@
 
 namespace eshop.Models
 {
+    //[Table("Urunler")]
     public class Product
     {
         public int Id { get; set; }
