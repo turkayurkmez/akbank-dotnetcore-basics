@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductService, FakeProductService>();
 builder.Services.AddScoped<ICategoryService, FakeCategoryService>();
 
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -23,7 +24,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
