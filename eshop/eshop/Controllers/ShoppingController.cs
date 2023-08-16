@@ -44,8 +44,8 @@ namespace eshop.Controllers
 
         private void saveCollectionToSession(ShoppingCollection shoppingCollection)
         {
-            var serializedToJson = JsonConvert.
-            HttpContext.Session.SetString("sepet",)
+            var serializedToJson = JsonConvert.SerializeObject(shoppingCollection);
+            HttpContext.Session.SetString("sepet", serializedToJson);
         }
 
         private ShoppingCollection getCollectionFromSession()

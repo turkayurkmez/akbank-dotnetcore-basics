@@ -1,4 +1,4 @@
-
+﻿
 using eshop.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductService, FakeProductService>();
 builder.Services.AddScoped<ICategoryService, FakeCategoryService>();
-
+//1. Session nesnesini ekleyeceğiz:
 builder.Services.AddSession();
 
 var app = builder.Build();
@@ -24,6 +24,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//HttpRequest üzerinde session aktif olsun:
 app.UseSession();
 app.UseAuthorization();
 
