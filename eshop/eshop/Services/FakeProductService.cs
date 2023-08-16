@@ -21,6 +21,11 @@ namespace eshop.Services
             };
         }
 
+        public void AddProduct(Product product)
+        {
+            //burasını gerçek db yaparken kullanacağız
+        }
+
         public Product FindProduct(int productId)
         {
             return products.SingleOrDefault(p => p.Id == productId);
@@ -35,6 +40,11 @@ namespace eshop.Services
         {
             //LINQ: 
             return products.Where(p => p.CategoryId == id).ToList();
+        }
+
+        public void Update(Product product)
+        {
+
         }
     }
 }

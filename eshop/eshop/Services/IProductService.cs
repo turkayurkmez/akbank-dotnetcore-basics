@@ -8,6 +8,7 @@ namespace eshop.Services
         List<Product> GetProductsByCategoryId(int id);
 
         Product FindProduct(int productId);
-
+        void AddProduct(Product product);
+        void Update(Product product);
     }
 }
