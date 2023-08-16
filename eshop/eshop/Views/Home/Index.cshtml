@@ -37,6 +37,17 @@
    
   </ul>
 
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">     
+      <strong class="me-auto">Bootstrap</strong>
+    
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div id="toastbody" class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+
   @section Scripts{
       <script>
           $(document).ready(function(){
@@ -48,6 +59,10 @@
                       method:'GET',
                       success: function(data){
                           console.log(data);
+                          $('#toastbody').text(data.message);
+                          var toastLiveExample = document.getElementById('liveToast');
+                          var toast = new bootstrap.Toast(toastLiveExample);
+                          toast.show();
                       },
                       error: function(err){
                           console.log(err);

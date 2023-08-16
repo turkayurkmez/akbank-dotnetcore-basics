@@ -16,7 +16,8 @@ namespace eshop.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var collection = getCollectionFromSession();
+            return View(collection);
         }
         public IActionResult AddToCard(int id)
         {
@@ -39,7 +40,7 @@ namespace eshop.Controllers
 
 
 
-            return Json(new { message = $"{product.Name} isimli ürün sunucuya ulaştı" });
+            return Json(new { message = $"{product.Name} isimli ürün sepete eklendi" });
         }
 
         private void saveCollectionToSession(ShoppingCollection shoppingCollection)

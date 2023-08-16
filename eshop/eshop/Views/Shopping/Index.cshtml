@@ -1,0 +1,41 @@
+﻿@model ShoppingCollection
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sepet Sayfası</h1>
+@if (Model.ProductItems.Count == 0)
+{
+    <div class="alert alert-danger">Sepetinizde ürün bulunmuyor</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Adet</th>
+                <th>Ara Toplam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ProductItems)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Product.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Quantity * item.Product.Price) TL</td>
+                </tr>
+            }    
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Toplam İndirimli Fiyat</td>
+                <td>@Model.TotalPrice() TL</td>
+            </tr>
+        </tfoot>
+    </table>
+}
+
