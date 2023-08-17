@@ -1,6 +1,7 @@
 ﻿
 using eshop.Data;
 using eshop.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,14 @@ builder.Services.AddSession();
 var connectionString = builder.Configuration.GetConnectionString("db");
 //DbContext nesnesini ekle:
 builder.Services.AddDbContext<AkbankDbContext>(option => option.UseSqlServer(connectionString));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(option =>
+                {
+                    option.LoginPath = "/Users/Login";
+                    option.ReturnUrlParameter = "gidilecekSayfa";
+                    option.AccessDeniedPath = "/Users/AccessDenied";
+                });
 
 var app = builder.Build();
 

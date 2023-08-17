@@ -1,10 +1,12 @@
 ﻿using eshop.Models;
 using eshop.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace eshop.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IProductService productService;
@@ -23,6 +25,7 @@ namespace eshop.Controllers
         }
 
         [HttpGet]
+
         public IActionResult Create()
         {
             ViewBag.Categories = getCategories();
