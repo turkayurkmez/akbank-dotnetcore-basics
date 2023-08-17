@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 //1. Session nesnesini ekleyeceğiz:
 builder.Services.AddSession();
 //Önce ortam değerlerinden bağlantı cümlesi:
