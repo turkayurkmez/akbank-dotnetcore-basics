@@ -1,5 +1,5 @@
-﻿using eshop.Models;
-using eshop.Services;
+﻿using eshop.Application.Services;
+using eshop.Infrastructure.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

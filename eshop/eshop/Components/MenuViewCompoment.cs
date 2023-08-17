@@ -1,4 +1,5 @@
-﻿using eshop.Services;
+﻿using eshop.Application.Services;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace eshop.Components

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace eshop.Models
+namespace eshop.Infrastructure.Entities
 {
     //[Table("Urunler")]
     public class Product

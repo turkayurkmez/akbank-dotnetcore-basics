@@ -1,5 +1,5 @@
-﻿using eshop.Models;
-using eshop.Services;
+﻿using eshop.Application.Services;
+using eshop.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;

@@ -1,4 +1,5 @@
-﻿namespace eshop.Models
+﻿
+namespace eshop.Infrastructure.Entities
 {
     public class Category
     {

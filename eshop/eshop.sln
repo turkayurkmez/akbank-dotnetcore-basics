@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eshop", "eshop\eshop.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.API", "eshop.API\eshop.API.csproj", "{44BD9BE6-393F-47A4-9B2E-80A14BD123D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Application", "eshop.Application\eshop.Application.csproj", "{971F2721-CCED-4815-858E-00FED047B5DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshop.Infrastructure", "eshop.Infrastructure\eshop.Infrastructure.csproj", "{E2D1DA26-8260-45BF-8EA7-5718ECB76D6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{44BD9BE6-393F-47A4-9B2E-80A14BD123D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44BD9BE6-393F-47A4-9B2E-80A14BD123D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44BD9BE6-393F-47A4-9B2E-80A14BD123D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971F2721-CCED-4815-858E-00FED047B5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971F2721-CCED-4815-858E-00FED047B5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971F2721-CCED-4815-858E-00FED047B5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971F2721-CCED-4815-858E-00FED047B5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2D1DA26-8260-45BF-8EA7-5718ECB76D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D1DA26-8260-45BF-8EA7-5718ECB76D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D1DA26-8260-45BF-8EA7-5718ECB76D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D1DA26-8260-45BF-8EA7-5718ECB76D6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

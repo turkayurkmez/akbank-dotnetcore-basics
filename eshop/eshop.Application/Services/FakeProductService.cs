@@ -1,6 +1,6 @@
-﻿using eshop.Models;
+﻿using eshop.Infrastructure.Entities;
 
-namespace eshop.Services
+namespace eshop.Application.Services
 {
     public class FakeProductService : IProductService
     {

@@ -1,7 +1,7 @@
-﻿using eshop.Data;
-using eshop.Models;
+﻿using eshop.Infrastructure.Data;
+using eshop.Infrastructure.Entities;
 
-namespace eshop.Services
+namespace eshop.Application.Services
 {
     public class CategoryService : ICategoryService
     {

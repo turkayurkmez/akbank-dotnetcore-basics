@@ -1,7 +1,7 @@
-﻿using eshop.Models;
+﻿using eshop.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace eshop.Data
+namespace eshop.Infrastructure.Data
 {
     public class AkbankDbContext : DbContext
     {

@@ -1,4 +1,6 @@
-﻿namespace eshop.Models
+﻿using eshop.Infrastructure.Entities;
+
+namespace eshop.Models
 {
     public class ProductItem
     {

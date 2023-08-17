@@ -1,5 +1,5 @@
-﻿using eshop.Models;
-using eshop.Services;
+﻿using eshop.Application.Services;
+using eshop.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
