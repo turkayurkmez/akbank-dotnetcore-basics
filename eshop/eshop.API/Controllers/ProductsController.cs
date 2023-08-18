@@ -1,4 +1,5 @@
 ﻿using eshop.Application.Services;
+using eshop.Infrastructure.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eshop.API.Controllers
@@ -30,5 +31,29 @@ namespace eshop.API.Controllers
             }
             return Ok(product);
         }
+        [HttpGet("[action]/{name}")]
+        public async Task<IActionResult> SearchByName(string name)
+        {
+            var products = await _productService.SearchByName(name);
+            return Ok(products);
+        }
+
+        //REST API: 
+        //Representational State Transfer
+        //Cookie -> Authentication
+        //Session -> Sepet
+        [HttpPost]
+        public IActionResult CreateNewProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _productService.AddProduct(product);
+                return CreatedAtAction(nameof(GetProduct), routeValues: new { id = product.Id }, value: null);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+
     }
 }

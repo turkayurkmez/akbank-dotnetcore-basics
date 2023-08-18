@@ -1,5 +1,6 @@
 ﻿using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace eshop.Application.Services
 {
@@ -31,6 +32,12 @@ namespace eshop.Application.Services
         public List<Product> GetProductsByCategoryId(int id)
         {
             return akbankDbContext.Products.Where(p => p.CategoryId == id).ToList();
+        }
+
+        public async Task<List<Product>> SearchByName(string name)
+        {
+
+            return await akbankDbContext.Products.Where(p => p.Name.Contains(name)).ToListAsync();
         }
 
         public void Update(Product product)

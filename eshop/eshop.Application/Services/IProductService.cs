@@ -10,5 +10,7 @@ namespace eshop.Application.Services
         Product FindProduct(int productId);
         void AddProduct(Product product);
         void Update(Product product);
+
+        Task<List<Product>> SearchByName(string name);
     }
 }

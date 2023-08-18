@@ -42,6 +42,11 @@ namespace eshop.Application.Services
             return products.Where(p => p.CategoryId == id).ToList();
         }
 
+        public Task<List<Product>> SearchByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Product product)
         {
 
