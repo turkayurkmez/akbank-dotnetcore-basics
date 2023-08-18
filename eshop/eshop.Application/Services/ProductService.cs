@@ -20,6 +20,13 @@ namespace eshop.Application.Services
             akbankDbContext.SaveChanges();
         }
 
+        public void DeleteProduct(int id)
+        {
+            var product = akbankDbContext.Products.FirstOrDefault(p => p.Id == id);
+            akbankDbContext.Products.Remove(product);
+            akbankDbContext.SaveChanges();
+        }
+
         public Product FindProduct(int productId)
         {
             return akbankDbContext.Products.Find(productId);

@@ -16,5 +16,7 @@ namespace eshop.Application.Services
         Task<List<Product>> SearchByName(string name);
 
         bool IsProductExist(int id);
+
+        void DeleteProduct(int id);
     }
 }

@@ -27,6 +27,11 @@ namespace eshop.Application.Services
             //burasını gerçek db yaparken kullanacağız
         }
 
+        public void DeleteProduct(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product FindProduct(int productId)
         {
             return products.SingleOrDefault(p => p.Id == productId);

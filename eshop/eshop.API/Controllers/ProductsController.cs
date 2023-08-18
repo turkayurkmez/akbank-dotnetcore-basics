@@ -73,5 +73,16 @@ namespace eshop.API.Controllers
             }
             return NotFound(new { message = $"id'si {id} olan bir ürün bulunamadı " });
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (_productService.IsProductExist(id))
+            {
+                _productService.DeleteProduct(id);
+                return Ok();
+            }
+            return NotFound(new { message = $"id'si {id} olan bir ürün bulunamadı " });
+        }
     }
 }

@@ -15,6 +15,14 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddCors(option => option.AddPolicy("allow", builder =>
+{
+    builder.AllowAnyOrigin();
+    builder.AllowAnyMethod();
+    builder.AllowAnyHeader();
+
+}));
+
 
 //Önce ortam değerlerinden bağlantı cümlesi:
 var connectionString = builder.Configuration.GetConnectionString("db");
@@ -29,8 +37,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("allow");
 app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 
