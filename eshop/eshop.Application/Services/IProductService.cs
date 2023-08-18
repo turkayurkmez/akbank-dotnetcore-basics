@@ -1,4 +1,5 @@
-﻿using eshop.Infrastructure.Entities;
+﻿using eshop.Application.DataTransferObjects.Requests;
+using eshop.Infrastructure.Entities;
 
 namespace eshop.Application.Services
 {
@@ -10,7 +11,10 @@ namespace eshop.Application.Services
         Product FindProduct(int productId);
         void AddProduct(Product product);
         void Update(Product product);
+        void Update(UpdateProductRequest productRequest);
 
         Task<List<Product>> SearchByName(string name);
+
+        bool IsProductExist(int id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using eshop.Infrastructure.Data;
+﻿using eshop.Application.DataTransferObjects.Requests;
+using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +35,11 @@ namespace eshop.Application.Services
             return akbankDbContext.Products.Where(p => p.CategoryId == id).ToList();
         }
 
+        public bool IsProductExist(int id)
+        {
+            return akbankDbContext.Products.Any(p => p.Id == id);
+        }
+
         public async Task<List<Product>> SearchByName(string name)
         {
 
@@ -42,6 +48,22 @@ namespace eshop.Application.Services
 
         public void Update(Product product)
         {
+            akbankDbContext.Products.Update(product);
+            akbankDbContext.SaveChanges();
+        }
+
+        public void Update(UpdateProductRequest productRequest)
+        {
+            var product = new Product
+            {
+                CategoryId = productRequest.CategoryId,
+                Description = productRequest.Description,
+                Discount = productRequest.Discount,
+                Id = productRequest.Id,
+                ImageUrl = productRequest.ImageUrl,
+                Name = productRequest.Name,
+                Price = productRequest.Price
+            };
             akbankDbContext.Products.Update(product);
             akbankDbContext.SaveChanges();
         }

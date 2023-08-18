@@ -1,4 +1,5 @@
-﻿using eshop.Application.Services;
+﻿using eshop.Application.DataTransferObjects.Requests;
+using eshop.Application.Services;
 using eshop.Infrastructure.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,6 +49,7 @@ namespace eshop.API.Controllers
             if (ModelState.IsValid)
             {
                 _productService.AddProduct(product);
+
                 return CreatedAtAction(nameof(GetProduct), routeValues: new { id = product.Id }, value: null);
             }
 
@@ -55,5 +57,21 @@ namespace eshop.API.Controllers
         }
 
 
+        //idempotent function: (aynı parametre ile) Arka arkaya çalıştığında; aynı sonuçları üreten ve yan etki oluşturmayan fonksiyonlar. 
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, UpdateProductRequest product)
+        {
+            //id var çünkü o id'de ürün var mı diye kontrol edeceğiz.
+            if (id == product.Id && _productService.IsProductExist(id))
+            {
+                if (ModelState.IsValid)
+                {
+                    _productService.Update(product);
+                    return Ok(product);
+                }
+                return BadRequest(ModelState);
+            }
+            return NotFound(new { message = $"id'si {id} olan bir ürün bulunamadı " });
+        }
     }
 }

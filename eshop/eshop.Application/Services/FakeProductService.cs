@@ -1,4 +1,5 @@
-﻿using eshop.Infrastructure.Entities;
+﻿using eshop.Application.DataTransferObjects.Requests;
+using eshop.Infrastructure.Entities;
 
 namespace eshop.Application.Services
 {
@@ -42,6 +43,11 @@ namespace eshop.Application.Services
             return products.Where(p => p.CategoryId == id).ToList();
         }
 
+        public bool IsProductExist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Product>> SearchByName(string name)
         {
             throw new NotImplementedException();
@@ -50,6 +56,11 @@ namespace eshop.Application.Services
         public void Update(Product product)
         {
 
+        }
+
+        public void Update(UpdateProductRequest productRequest)
+        {
+            throw new NotImplementedException();
         }
     }
 }
